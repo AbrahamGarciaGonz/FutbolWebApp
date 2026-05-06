@@ -1,0 +1,24 @@
+# Ejecutables
+*.exe
+*.dll
+*.pdb
+*.map
+*.dbg
+
+# Logs
+*.log
+
+# Temporales
+*.tmp
+*.bak
+*.old
+*.cache
+
+# Programas generados
+Programs/*.exe
+Programs/*.log
+Programs/*.dbg
+Programs/*.map
+
+# Archivos sensibles
+*.dfr
