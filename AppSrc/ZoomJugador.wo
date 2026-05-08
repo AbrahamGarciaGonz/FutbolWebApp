@@ -12,9 +12,11 @@ Use cligaDataDictionary.dd
 Use cequipoDataDictionary.dd
 Use cjugadorDataDictionary.dd
 
+Use SelectEquipo.wo
+
 Object oZoomJugador is a cWebView
     Set piColumnCount to 12
-    Set psCaption to "ZoomJugador"
+    Set psCaption to "Jugador"
     Set peWebViewStyle to wvsDrilldown
     Set peViewType to vtZoom
     Set pbShowCaption to False
@@ -65,15 +67,16 @@ Object oZoomJugador is a cWebView
         End_Object 
 
         Object oequipoID is a cWebForm
-            Entry_Item equipo.ID
+            Entry_Item equipo.Nombre
+            Set Server to oEquipo_DD
             Set piColumnSpan to 3
             Set piColumnIndex to 0
             Set peLabelPosition to lpTop
-            Set psLabel to "EquipoID"
+            Set psLabel to "Equipo"
             Set pbPromptButton to True
 
 // ToDo: Fill in the from-child parent Select view object name for navigate forward
-//            WebRegisterPath ntNavigateForward oSelectView
+            WebRegisterPath ntNavigateForward oSelectEquipo
 
             Procedure OnPrompt
                 Send NavigatePath
