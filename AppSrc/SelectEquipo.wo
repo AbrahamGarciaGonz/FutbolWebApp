@@ -18,7 +18,7 @@ Object oSelectEquipo is a cWebView
     Set peWebViewStyle to wvsDrilldown
     Set peViewType to vtSelect
     Set piColumnCount to 12
-    Set pbShowCaption to False
+    Set pbShowCaption to True
     Set piMaxWidth to 1024
 
     Object oliga_DD is a cligaDataDictionary
@@ -37,19 +37,19 @@ Object oSelectEquipo is a cWebView
         Set psCSSClass to "MobileList"
         Set pbServerOnRowClick to True
         Set pbFillHeight to True
-        Set pbShowHeader to False
+        Set pbShowHeader to True
         Set piSortColumn to 0
 
         Object oequipoNombre is a cWebColumn
             Entry_Item equipo.Nombre
-            Set psCaption to "equipo.Nombre"
-            Set piWidth to 1491
+            Set psCaption to "Nombre"
+            Set piWidth to 1200
         End_Object 
 
-        Object oligaID is a cWebColumn
-            Entry_Item liga.ID
-            Set psCaption to "equipo.LigaID"
-            Set piWidth to 124
+        Object oligaNombre is a cWebColumn
+            Entry_Item liga.Nombre
+            Set psCaption to "Liga"
+            Set piWidth to 400
         End_Object 
 
         Object oDetailButton is a cWebColumnButton
