@@ -51,7 +51,7 @@ Object oLogin is a cWebView
         Set piMaxLength to 20
         Set piColumnIndex to 1
         Set pbShowLabel to False
-        Set psPlaceHolder to "loginname"
+        Set psPlaceHolder to "Usuario"
         Set piColumnSpan to 10
         Set psAutoComplete to "username"
     End_Object
@@ -63,7 +63,7 @@ Object oLogin is a cWebView
         Set piMaxLength to 20
         Set peLabelPosition to lpTop
         Set pbShowLabel to False
-        Set psPlaceHolder to "password"
+        Set psPlaceHolder to "Contraseña"
         Set piColumnSpan to 10
         Set piColumnIndex to 1
         Set psAutoComplete to "current-password"
@@ -76,7 +76,7 @@ Object oLogin is a cWebView
     
     Object oLoginButton is a cWebButton
         Set pbShowLabel to False
-        Set psCaption to "sign in"
+        Set psCaption to "Iniciar sesión"
         Set pbServerOnClick to True
         Set piColumnSpan to 10
         Set piColumnIndex to 1
