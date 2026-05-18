@@ -77,6 +77,8 @@ Object oSelectJugador is a cWebView
             Set piListRowSpan to 1
             Set psBtnCssClass to "WebButtonIcon WebIcon_Info"
             Set peAlign to alignRight
+            Set pbShowCaption to False
+            
 
             WebRegisterPath ntNavigateForward oZoomJugador
 
@@ -125,7 +127,7 @@ Object oSelectJugador is a cWebView
 
         Object oSearch is a cWebMenuItem
             Set psCSSClass to "WebPromptMenuItem"
-            Set psCaption to "Search"
+            Set psCaption to "Buscar"
 
             Procedure OnClick
                 Send Search of oList
@@ -135,7 +137,7 @@ Object oSelectJugador is a cWebView
 
         Object oNewButton is a cWebMenuItem
             Set psCSSClass to "WebClearMenuItem"
-            Set psCaption to "New"
+            Set psCaption to "Nuevo"
 
             WebRegisterPath ntNavigateForward oZoomJugador
 
@@ -158,7 +160,6 @@ Object oSelectJugador is a cWebView
             Case (NavigateData.eNavigateType = nfFromParent)
                 // If from parent, this is a constrained drill down
                 // If Row select does main-zoom we don't need this
-                WebSet pbRender of oDetailButton to False
                 Case Break
 
             Case (NavigateData.eNavigateType = nfFromChild)
@@ -167,13 +168,9 @@ Object oSelectJugador is a cWebView
 
             Case (NavigateData.eNavigateType = nfFromMain)
                 // If from main, this is a probably a main-file lookup from a Zoom
-                WebSet pbRender of oDetailButton to False
                 Case Break
 
             Case Else // must be nfUndefined
-                // This may be the start of a drilldown query or this may be used for some kind of custom query.
-                // If Row select does main-zoom we don't need this
-                WebSet pbRender of oDetailButton to False
 
         Case End
 
