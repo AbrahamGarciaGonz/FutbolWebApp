@@ -3,42 +3,42 @@
 /* Color Palette */
 :root {
     /* Main Color = Blue */
-    --df-MainDark: #102B49;
-    --df-MainRegular: #163A63;
-    --df-MainMedium: #35577C;
-    --df-MainLight: #6F89A5;
-    --df-MainLight2: #A8B7C8;
-    --df-MainLight3: #D6DEE7;
-    --df-MainLight4: #EEF3F7;
+    --df-MainDark: #1a3e38;
+    --df-MainRegular: #1a3e38;
+    --df-MainMedium: #2c695f;
+    --df-MainLight: #3e8175;
+    --df-MainLight2: #a3b1af;
+    --df-MainLight3: #d1d8d7;
+    --df-MainLight4: #e8ebeb;
 
     /* Error Color = Red */
-    --df-ErrorDark: #A61D2B;
-    --df-ErrorRegular: #D72638;
+    --df-ErrorDark: #c20000;
+    --df-ErrorRegular: #ad0000;
 
     /* Warning Color = Yellow */
-    --df-WarningDark: #C98517;
-    --df-WarningRegular: #F5A623;
+    --df-WarningDark: #d1321d;
+    --df-WarningRegular: #f46b22;
 
     /* Highlight Color = Yellow */
     --df-Highlight: #F4A11E;
 
     /* Grayscale from darkest to lightest */
-    --df-Grayscale1: #0b223d;
-    --df-Grayscale2: #42546a;
-    --df-Grayscale3: #7a8796;
-    --df-Grayscale4: #aab3be;
-    --df-Grayscale5: #cdd3d9;
-    --df-Grayscale6: #dbe0e5;
-    --df-Grayscale7: #eaedf0;
-    --df-Grayscale8: #F8FAFC;
+    --df-Grayscale1: #181818;
+    --df-Grayscale2: #4e4e4e;
+    --df-Grayscale3: #848484;
+    --df-Grayscale4: #b3b3b3;
+    --df-Grayscale5: #d5d5d5;
+    --df-Grayscale6: #e3e3e3;
+    --df-Grayscale7: #f1f1f1;
+    --df-Grayscale8: #ffffff;
 
-    --df-BtnBackgroundColor: #163A63;
+    --df-BtnBackgroundColor: #1a3e38;
     --df-BtnFocusColor: var(--df-MainRegular);
     --df-BtnBorderColor: transparent;
-    --df-BtnBorderRadius: 3px;
+    --df-BtnBorderRadius: 4px;
     --df-BtnBorderStyle: solid;
     --df-BtnBorderWidth: 1px;
-    --df-BtnHeight: 23px;
+    --df-BtnHeight: 27px;
     --df-BtnTextColor: #ffffff;
     --df-CelBorderBottom: 0px;
     --df-CelBorderLeft: 0px;
@@ -46,7 +46,7 @@
     --df-CelBorderRight: 0px;
     --df-CelBorderStyle: none;
     --df-CelBorderTop: 0px;
-    --df-CelBorderWidth: 1px;
+    --df-CelBorderWidth: 0px;
   
     --df-GrdBorderBottom: 0px;
     --df-GrdBorderLeft: 0px;
@@ -91,13 +91,13 @@
     --df-CtrHeight: 23px;
     --df-CtrTextColor: #181818;
 
-    --df-TxtFont: Roboto;
+    --df-TxtFont: Arial;
     --df-TxtSize: 1rem;
     
-    --df-TltFont: Roboto;
+    --df-TltFont: Arial;
     --df-TltSize: 0.9rem;
     
-    --df-DtaFont: Roboto;
+    --df-DtaFont: Arial;
     --df-DtaSize: 0.9rem;
     
 
@@ -485,7 +485,7 @@ div.WebCon_TopLabel.WebCon_FloatEnabled > label.WebCon_Float {
     transition: background-color 0.5s, color 0.5s;
     font-size: 16px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.25);
-    font-family: Roboto;
+    font-family: Arial;
     font-size: 1rem;
 }
 

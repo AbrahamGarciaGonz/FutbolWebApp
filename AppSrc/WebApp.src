@@ -75,17 +75,6 @@ Object oWebApp is a cWebApp
                         End_Procedure
                     End_Object
                     
-                    Object oSelectPosicionItem1 is a cWebMenuItem
-                        Set psCaption to "Posiciones"
-
-                        WebRegisterPath ntNavigateBegin oSelectPosicion
-
-                        Procedure OnClick
-                            Forward Send OnClick
-                                Send NavigatePath
-                        End_Procedure
-                    End_Object
-                    
                     Object oSelectJugadorItem1 is a cWebMenuItem
                         Set psCaption to "Jugadores"
 
@@ -95,12 +84,23 @@ Object oWebApp is a cWebApp
                             Forward Send OnClick
                                 Send NavigatePath
                         End_Procedure
-                    End_Object
+                    End_Object                    
                     
                     Object oSelectEntrenadorItem1 is a cWebMenuItem
                         Set psCaption to "Entrenadores"
 
                         WebRegisterPath ntNavigateBegin oSelectEntrenador
+
+                        Procedure OnClick
+                            Forward Send OnClick
+                                Send NavigatePath
+                        End_Procedure
+                    End_Object
+                    
+                    Object oSelectPosicionItem1 is a cWebMenuItem
+                        Set psCaption to "Posiciones"
+
+                        WebRegisterPath ntNavigateBegin oSelectPosicion
 
                         Procedure OnClick
                             Forward Send OnClick
