@@ -11,6 +11,9 @@ Class centrenadorDataDictionary is a DataDictionary
         Set Main_File to entrenador.File_Number
 
         Set Add_Server_File to equipo.File_Number
+        
+//      Un entrenador puede existir aunque no tenga equipo 
+        Set ParentNullAllowed equipo.File_Number to True
 
         Set Add_Client_File to hijoentrenador.File_Number
 
@@ -20,5 +23,14 @@ Class centrenadorDataDictionary is a DataDictionary
         Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
 
     End_Procedure
+    
+    Procedure Attach_Main_File
+        Forward Send Attach_Main_File
+        // Si no hay equipo, DataFlex deja EquipoID a 0.
+        // Guarda NULL en MySQL
+        If (entrenador.EquipoID = 0) Begin
+            Set_Attribute DF_FIELD_IS_NULL of entrenador.File_Number (RefTable(entrenador.EquipoID)) to True
+        End
+     End_Procedure
 
 End_Class
