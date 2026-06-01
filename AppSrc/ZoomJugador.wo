@@ -59,7 +59,7 @@ Object oZoomJugador is a cWebView
             Set psLabel to "Apellido"
         End_Object 
 
-        Object ojugadorNacionalidad is a cWebForm
+        Object ojugadorNacionalidad is a cWebCombo
             Entry_Item jugador.Nacionalidad
             Set piColumnSpan to 4
             Set piColumnIndex to 8
