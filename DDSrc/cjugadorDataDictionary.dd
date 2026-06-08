@@ -5,6 +5,11 @@ Open hijojugador
 Open jugadorposicion
 Open equipo
 
+// Validación para las nacionalidades (tablas CodeType/CodeMast)
+Object oNacionTypeValidation is a CodeValidationTable
+    Set Type_Value to "NACION"
+End_Object
+
 Class cjugadorDataDictionary is a DataDictionary
     
     Procedure Construct_Object
@@ -12,6 +17,9 @@ Class cjugadorDataDictionary is a DataDictionary
         Set Main_File to jugador.File_Number
 
         Set Add_Server_File to equipo.File_Number
+        
+//      Un jugador puede existir aunque no tenga equipo  
+        Set ParentNullAllowed equipo.File_Number to True
 
         Set Add_Client_File to hijojugador.File_Number
         Set Add_Client_File to jugadorposicion.File_Number
@@ -20,7 +28,18 @@ Class cjugadorDataDictionary is a DataDictionary
         Set Foreign_Field_Option DD_KEYFIELD DD_FINDREQ to True
         Set Foreign_Field_Option DD_INDEXFIELD DD_NOPUT to True
         Set Foreign_Field_Option DD_DEFAULT DD_DISPLAYONLY to True
+        
+//      Asocia la nacionalidad del jugador a la tabla de validación
+        Set Field_Value_Table Field jugador.Nacionalidad to oNacionTypeValidation
 
+    End_Procedure
+
+    Procedure Attach_Main_File
+        Forward Send Attach_Main_File
+        
+        If (jugador.EquipoID = 0) Begin
+            Set_Attribute DF_FIELD_IS_NULL of jugador.File_Number (RefTable(jugador.EquipoID)) to True
+        End
     End_Procedure
 
 End_Class

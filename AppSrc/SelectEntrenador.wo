@@ -59,7 +59,7 @@ Object oSelectEntrenador is a cWebView
             Set pbSortable to False
         End_Object 
 
-        Object oentrenadorNacionalidad is a cWebColumn
+        Object oentrenadorNacionalidad is a cWebColumnCombo
             Entry_Item entrenador.Nacionalidad
             Set psCaption to "Nacionalidad"
             Set piWidth to 244
