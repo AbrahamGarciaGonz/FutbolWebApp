@@ -57,7 +57,7 @@ Object oSelectJugador is a cWebView
             Set piWidth to 400
         End_Object 
 
-        Object ojugadorNacionalidad is a cWebColumn
+        Object ojugadorNacionalidad is a cWebColumnCombo
             Entry_Item jugador.Nacionalidad
             Set psCaption to "Nacionalidad"
             Set piWidth to 400
