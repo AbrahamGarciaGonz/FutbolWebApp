@@ -72,7 +72,7 @@ Object oDashboard is a cWebView
                 Set piColumnSpan to 10
                 Set piColumnIndex to 0
                 Set psCSSClass to "Tile DarkAlternate"
-                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Ligas</div><div class="Tile_Subtitle"></div></div>'
+                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title"><img src="https://i.ibb.co/wFfBJ7M9/sports-trophy-on-a-banner-with-olive-branches-svgrepo-com.png" width="40" alt="Logo ligas"><br>Ligas</div><div Class="Tile_Subtitle"></div></div>'
             
                 WebRegisterPath ntNavigateForwardCustom oSelectLiga
                 
@@ -87,7 +87,7 @@ Object oDashboard is a cWebView
                 Set piColumnSpan to 5
                 Set piColumnIndex to 0
                 Set psCSSClass to "Tile DarkAlternate"
-                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Equipos</div><div class="Tile_Subtitle"></div></div>'
+                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title"><img src="https://i.ibb.co/SXGC6RnD/symbolic-shield-with-crown-and-olive-branches-svgrepo-com.png" width="40" alt="Logo equipos"><br>Equipos</div><div Class="Tile_Subtitle"></div></div>'
             
                 WebRegisterPath ntNavigateForwardCustom oSelectEquipo
                 
@@ -101,7 +101,7 @@ Object oDashboard is a cWebView
                 Set pbServerOnClick to True
                 Set piColumnSpan to 5
                 Set psCSSClass to "Tile Dark"
-                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Jugadores</div><div class="Tile_Subtitle"></div></div>'
+                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title"><img src="https://i.ibb.co/V0ZTYpz6/football-player-with-ball-svgrepo-com.png" width="40" alt="Logo jugadores"><br>Jugadores</div><div class="Tile_Subtitle"></div></div>'
                 Set piColumnIndex to 5
     
                 WebRegisterPath ntNavigateForwardCustom oSelectJugador
@@ -117,7 +117,7 @@ Object oDashboard is a cWebView
                 Set piColumnSpan to 5
                 Set piColumnIndex to 0
                 Set psCSSClass to "Tile LightAlternate"
-                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Entrenadores</div><div class="Tile_Subtitle"></div></div>'
+                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title"><img src="https://i.ibb.co/WWpbGYjW/football-leader-man-svgrepo-com.png" width="40" alt="Logo entrenadores"><br>Entrenadores</div><div class="Tile_Subtitle"></div></div>'
                                 
                 WebRegisterPath ntNavigateForwardCustom oSelectEntrenador
                 
@@ -132,7 +132,7 @@ Object oDashboard is a cWebView
                 Set piColumnSpan to 5
                 Set piColumnIndex to 5
                 Set psCSSClass to "Tile DarkAlternate"
-                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title">Posiciones</div><div class="Tile_Subtitle"></div></div>'
+                Set psHtml to '<div class="WebCon_Sizer" data-ServerOnClick="openview"><div Class="Tile_Title"><img src="https://i.ibb.co/m54KnZb6/football-players-on-field-svgrepo-com.png" width="40" alt="Logo posiciones"><br>Posiciones</div><div class="Tile_Subtitle"></div></div>'
             
                 WebRegisterPath ntNavigateForwardCustom oSelectPosicion
                 
