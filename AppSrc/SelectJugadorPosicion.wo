@@ -1,0 +1,184 @@
+﻿// C:\DataFlex Projects\FutbolWebApp\AppSrc\SelectJugadorPosicion.wo
+// SelectJugadorPosicion
+//
+
+Use cWebView.pkg
+Use cWebList.pkg
+Use cWebMenuGroup.pkg
+Use cWebMenuItem.pkg
+Use cWebColumnButton.pkg
+Use cWebColumn.pkg
+Use ZoomJugadorPosicion.wo
+
+Use cligaDataDictionary.dd
+Use cequipoDataDictionary.dd
+Use cjugadorDataDictionary.dd
+Use cposicionDataDictionary.dd
+Use cjugadorposicionDataDictionary.dd
+
+Object oSelectJugadorPosicion is a cWebView
+    Set psCaption to "Jugadores por posición"
+    Set peWebViewStyle to wvsDrilldown
+    Set peViewType to vtSelect
+    Set piColumnCount to 12
+    Set pbShowCaption to False
+    Set piMaxWidth to 1024
+
+    Object oLiga_DD is a cligaDataDictionary
+    End_Object 
+
+    Object oEquipo_DD is a cequipoDataDictionary
+        Set DDO_Server to oLiga_DD
+    End_Object 
+
+    Object oJugador_DD is a cjugadorDataDictionary
+        Set DDO_Server to oEquipo_DD
+    End_Object 
+
+    Object oPosicion_DD is a cposicionDataDictionary
+    End_Object 
+
+    Object oJugadorPosicion_DD is a cjugadorposicionDataDictionary
+        Set DDO_Server to oJugador_DD
+        Set DDO_Server to oPosicion_DD
+    End_Object 
+
+    Set Main_DD To oJugadorPosicion_DD
+    Set Server  to oJugadorPosicion_DD
+
+    Object oList is a cWebList
+        Set piColumnSpan to 0
+        Set psCSSClass to "MobileList"
+        Set pbServerOnRowClick to True
+        Set pbFillHeight to True
+        Set pbShowHeader to True
+        Set piSortColumn to 0
+
+        Object oJugadorPosicionID is a cWebColumn
+            Entry_Item jugadorposicion.ID
+            Set psCaption to "ID"
+            Set piWidth to 60
+        End_Object 
+
+        Object oJugadorNombre is a cWebColumn
+            Set psCaption to "Jugador"
+            Set piWidth to 452
+            
+            Procedure OnSetCalculatedValue String ByRef sValue
+                Move (Trim(jugador.Nombre) + " " + Trim(jugador.Apellido)) to sValue
+            End_Procedure
+        End_Object 
+
+        Object oPosicionNombre is a cWebColumn
+            Entry_Item posicion.Nombre
+            Set psCaption to "Posición"
+            Set piWidth to 452
+        End_Object 
+
+        Object oDetailButton is a cWebColumnButton
+            Set psCaption to "btn"
+            Set piWidth to 60
+            Set pbFixedWidth to True
+            Set pbResizable to False
+            Set piListRowSpan to 1
+            Set psBtnCssClass to "WebButtonIcon WebIcon_Info"
+            Set peAlign to alignRight
+            Set pbShowCaption to False
+
+            WebRegisterPath ntNavigateForward oZoomJugadorPosicion
+
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+
+            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+                Move True to NavigateData.bReadOnly
+            End_Procedure
+
+        End_Object 
+
+        WebRegisterPath ntNavigateForward oZoomJugadorPosicion
+
+        Procedure OnRowClick String sRowId
+            tWebNavigateData NavigateData
+            Get GetNavigateData to NavigateData
+
+            Case Begin
+                Case (NavigateData.eNavigateType = nfFromParent)
+                    Send NavigateForward of oZoomJugadorPosicion Self
+                    Case Break
+
+                Case (NavigateData.eNavigateType = nfFromChild)
+                    Send NavigateClose Self
+                    Case Break
+
+                Case (NavigateData.eNavigateType = nfFromMain)
+                    Send NavigateClose Self
+                    Case Break
+
+                Case Else // must be nfUndefined
+                    Send NavigateForward of oZoomJugadorPosicion Self
+
+            Case End
+        End_Procedure
+
+        Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+            Move True to NavigateData.bReadOnly
+        End_Procedure
+
+    End_Object 
+
+    Object oActionGroup is a cWebMenuGroup
+
+        Object oSearch is a cWebMenuItem
+            Set psCSSClass to "WebPromptMenuItem"
+            Set psCaption to "Buscar"
+
+            Procedure OnClick
+                Send Search of oList
+            End_Procedure
+
+        End_Object 
+
+        Object oNewButton is a cWebMenuItem
+            Set psCSSClass to "WebClearMenuItem"
+            Set psCaption to "Nuevo"
+
+            WebRegisterPath ntNavigateForward oZoomJugadorPosicion
+
+            Procedure OnClick
+                Send NavigatePath
+            End_Procedure
+
+            Procedure OnGetNavigateForwardData tWebNavigateData ByRef NavigateData Handle hoToView
+                Move True to NavigateData.bNewRecord
+            End_Procedure
+
+        End_Object 
+    End_Object 
+
+    Procedure OnNavigateForward tWebNavigateData NavigateData Integer hoInvokingView Integer hoInvokingObject
+        WebSet pbRender of oNewButton to True
+        WebSet pbRender of oDetailButton to True
+
+        Case Begin
+            Case (NavigateData.eNavigateType = nfFromParent)
+                // If from parent, this is a constrained drill down
+                // If Row select does main-zoom we don't need this
+                Case Break
+
+            Case (NavigateData.eNavigateType = nfFromChild)
+                // If from child, this is a probably a parent lookup from a Zoom
+                Case Break
+
+            Case (NavigateData.eNavigateType = nfFromMain)
+                // If from main, this is a probably a main-file lookup from a Zoom
+                Case Break
+
+            Case Else // must be nfUndefined
+
+        Case End
+
+    End_Procedure
+
+End_Object 
